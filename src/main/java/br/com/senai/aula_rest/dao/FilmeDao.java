@@ -24,7 +24,7 @@ public class FilmeDao {
 		List<Filme> lista = new ArrayList<Filme>();
 		while (rs.next()) {
 			Filme f = new Filme(rs.getInt("filme_id"), rs.getString("titulo"), rs.getString("descricao"),
-					rs.getString("ano_de_lancamento"));
+					rs.getString("ano_de_lancamento").substring(0, 4));
 			lista.add(f);
 		}
 		return lista;
@@ -36,8 +36,8 @@ public class FilmeDao {
 		con = ConnectionDB.getConnection();
 		ps = con.prepareStatement(sql);
 		ps.setString(1, f.getTitulo());
-		ps.setString(1, f.getDescricao());
-		ps.setString(1, f.getAnoLancamento());
+		ps.setString(2, f.getDescricao());
+		ps.setString(3, f.getAnoLancamento());
 		if (ps.executeUpdate() > 0) {
 			return true;
 		}

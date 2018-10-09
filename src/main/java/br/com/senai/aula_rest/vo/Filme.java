@@ -7,6 +7,10 @@ public class Filme {
 	private String descricao;
 	private String anoLancamento;
 	
+	public Filme() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Filme(Integer filme_id, String titulo, String descricao, String anoLancamento) {
 		super();
 		this.filme_id = filme_id;

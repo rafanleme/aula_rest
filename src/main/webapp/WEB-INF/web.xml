@@ -4,8 +4,15 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
 	<display-name>aula_rest</display-name>
-	
-	
+	<listener>
+    <listener-class>
+         org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap
+      </listener-class>
+  	</listener>
+	<context-param>
+		<param-name>javax.ws.rs.Application</param-name>
+		<param-value>br.com.senai.aula_rest.config.ApplicationConfig</param-value>
+	</context-param>
 	<context-param>
 		<param-name>resteasy.scan</param-name>
 		<param-value>true</param-value>
